@@ -1,0 +1,176 @@
+\documentclass[reqno,12pt,oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{rac} 
+\usepackage[intlimits]{amsmath}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{rotating}
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{mdframed}
+\usepackage{epsfig}
+\usepackage{subfigure} 
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage[numbers]{natbib}     
+\usepackage{acronym}
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{algpseudocode}
+\usepackage{ifthen}
+\usepackage[intoc]{nomencl}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage[breaklinks]{hyperref}
+\usepackage{hyperref}
+\usepackage{algorithm,algpseudocode}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage{algorithm}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{2212}{-}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\renewcommand\bibname{References}
+\makenomenclature
+\onehalfspacing 
+\newcommand{\sun}{\ensuremath{\odot}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{introduction}[theorem]{Introduction}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{theorem}{chapter}  
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+\hbox{}
+\thispagestyle{empty}
+\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent
+\marginpar{\textsc{To Do}}
+\framebox{\begin{minipage}[c]{0.95 \textwidth}
+\tt\begin{center} #1 \end{center}\end{minipage}}\vspace{5mm}\par}
+
+
+
+\begin{document}
+
+% Title page as required by Rackham dissertation guidelines
+\titlepage{Online Student Evaluation Environment}{\\210195}{Masters of Science in Information Technolog}
+{Information Technology}{May, 2023}{Prof. Fahima Tabassum, PhD}
+
+% Begin the front matter as required by Rackham dissertation guidelines
+\initializefrontsections
+\makeatletter
+\if@twoside \setcounter{page}{4} \else \setcounter{page}{1} \fi
+\makeatother
+
+%Optional declaration page
+\startdeclarationpage
+\input{intro/declaration}
+\label{declaration}
+
+%Optional Certificate page
+\startcertificatepage
+\input{intro/certificate}
+\label{Certificate}
+
+% Optional Acknowledgements page
+\startacknowledgementspage
+\input{intro/Acknowledgements}
+\label{Acknowledgements}
+
+
+\listofabbreviations
+\section*{
+\begin{center}
+  LIST OF ABBREVIATIONS
+\end{center}
+}
+\begin{tabular}{p{2.5cm}p{10cm}}
+\textbf{OS} & Operating System\\
+\textbf{DS} & Distance Learning\\
+\textbf{IoT} & Internet of Things\\
+\textbf{MCQ} & Multiple Choice Question\\
+\textbf{MLA} & Machine Learning Algorithm\\
+\textbf{DSLab} & Decision Science Research Lab\\
+\textbf{HTML} & Hypertext Markup Language\\
+\textbf{CSS} & Cascading Style Sheets\\
+\textbf{API}  & Application Programming Interface\\
+\textbf{RDMS} & Relational Database Model System\\
+\textbf{MVC} & Model View Controller\\
+\textbf{URL} & Uniform Resource Locator\\
+\textbf{IRS} & Internal Revenue Service\\
+\end{tabular}
+
+% % List of Notatoin
+% \listofnotations
+% \section*{
+% \begin{center}
+%  LIST OF NOTATIONS
+% \end{center}
+% }
+
+% \begin{tabular}{p{2.5cm}p{10cm}}
+% $\beta$   & Define Beta\\
+% $\epsilon$  & Define Epsilon\\
+% $\omega$& Define Omega\\
+% $\theta$   & Define Theta\\
+% \end{tabular}
+
+%Optional Abstract page
+\startabstractpage
+\input{intro/abstract}
+\label{Abstract}
+
+\listoffigures   % Required if there is more than one figure
+\tableofcontents     % Required
+\printnomenclature[1.5cm]
+
+\startthechapters
+
+ \label{chap0:Introduction}
+ \input{chapters/chapter1}
+
+ \label{chap1:Literature}
+ \input{chapters/chapter2}
+
+ \label{chap2:Requirement Analysis}
+ \input{chapters/chapter4}
+
+ \label{chap3:SystemModel}
+ \input{chapters/chapter3}
+ 
+ \label{chap4:Implementation}
+ \input{chapters/chapter5}
+
+ \label{chap5:Conclusion}
+ \input{chapters/chapter6}
+
+\label{chap4:Reference}
+\bibliographystyle{ieeetr}
+% \renewcommand{\bibname}{Bibliography}
+\bibliography{ref.bib}
+
+\end{document}
